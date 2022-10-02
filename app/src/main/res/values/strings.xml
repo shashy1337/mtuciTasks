@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Randomizer</string>
+    <string name="defaultText">text</string>
+    <string name="coin">coin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="eagle_and_tails">Подрабысвание монетки</string>
+    <string name="dices">Игральные кости</string>
+    <string name="random_digit_str">Cгенерировать случайное число</string>
+    <string name="ball_8">шар восьмерка</string>
+    <string name="list">Список</string>
+</resources>

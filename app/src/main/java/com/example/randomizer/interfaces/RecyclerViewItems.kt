@@ -1,0 +1,3 @@
+package com.example.randomizer.interfaces
+
+interface RecyclerViewItems
