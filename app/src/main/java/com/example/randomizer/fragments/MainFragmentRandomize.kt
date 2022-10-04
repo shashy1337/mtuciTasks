@@ -5,17 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.randomizer.Activitys.MainActivity
+import androidx.recyclerview.widget.RecyclerView
+import com.example.randomizer.Activity.MainActivity
 import com.example.randomizer.Adapters.RandomizeAdapter
 import com.example.randomizer.Config.App
 import com.example.randomizer.R
 import com.example.randomizer.databinding.FragmentMainRandomizeBinding
+import com.example.randomizer.decorations.ItemDecorationsPadd
 
 class MainFragmentRandomize : Fragment() {
 
     private lateinit var binding : FragmentMainRandomizeBinding
+    private lateinit var adapterRV: RandomizeAdapter
+    private val database = App.instance.itemList
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,19 +29,23 @@ class MainFragmentRandomize : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil
-            .inflate(inflater, R.layout.fragment_main_randomize, container, false)
+    ): View {
+        binding = FragmentMainRandomizeBinding
+            .inflate(inflater, container, false)
         return binding.root
     }
 
     fun initRv(){
-        val adapterRv = RandomizeAdapter(requireActivity() as MainActivity)
-        binding.randomRecyclerView.apply {
-            adapter = adapterRv
+        val recyclerView = binding.randomRecyclerView
+        adapterRV = RandomizeAdapter(requireActivity() as MainActivity)
+        recyclerView.apply {
+            adapter = adapterRV
             layoutManager = LinearLayoutManager(requireContext())
+            addItemDecoration(
+                ItemDecorationsPadd(16)
+            )
         }
-        adapterRv.items = App.instance.itemList
+        adapterRV.items = database
     }
 
 }

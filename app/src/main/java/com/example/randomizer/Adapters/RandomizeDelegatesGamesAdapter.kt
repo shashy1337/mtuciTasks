@@ -2,11 +2,13 @@ package com.example.randomizer.Adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.randomizer.databinding.RandomizeItemBinding
 import com.example.randomizer.interfaces.RecyclerViewItems
 import com.example.randomizer.model.RandomizeGameDataClass
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
+import kotlinx.android.synthetic.main.randomize_item.view.*
 
 class RandomizeDelegatesGamesAdapter(private val clickListener: OnItemClickListener)
     : AbsListItemAdapterDelegate<RandomizeGameDataClass, RecyclerViewItems,
@@ -18,8 +20,10 @@ class RandomizeDelegatesGamesAdapter(private val clickListener: OnItemClickListe
     class RandomizeGamesViewHolder(private val binding: RandomizeItemBinding)
         : RecyclerView.ViewHolder(binding.root){
 
+        private val textGame : TextView = binding.randomizeTextItem
+
         fun onBind(game : RandomizeGameDataClass){
-            binding.randomizeTextItem.text = game.randomText
+            textGame.text = game.randomText
         }
     }
 
@@ -42,13 +46,19 @@ class RandomizeDelegatesGamesAdapter(private val clickListener: OnItemClickListe
         holder: RandomizeGamesViewHolder,
         payloads: MutableList<Any>
     ) {
-        holder.onBind(item)
+        when (holder) {
+            else -> {
+                holder.onBind(item)
+                holder.itemView.cardView.setOnClickListener {
+                    clickListener.click(item)
+                }
+            }
+        }
     }
-
 
     interface OnItemClickListener {
 
-        fun click(film : RandomizeGameDataClass)
+        fun click(game : RandomizeGameDataClass)
 
     }
 

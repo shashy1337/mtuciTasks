@@ -9,4 +9,14 @@
     <string name="random_digit_str">Cгенерировать случайное число</string>
     <string name="ball_8">шар восьмерка</string>
     <string name="list">Список</string>
+    <string name="random">RANDOM</string>
+    <string name="zero">0</string>
+    <string name="take_cubes">Бросьте кубики!</string>
+    <string name="One">1</string>
+    <string name="two">2</string>
+    <string name="throwC">Бросить</string>
+    <string name="add_range_str">Введите диапозон чисел</string>
+    <string name="until">До</string>
+    <string name="from">От</string>
+    <string name="eagle_or_tickle">Орел или Решка?</string>
 </resources>

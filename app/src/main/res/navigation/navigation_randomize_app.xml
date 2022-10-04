@@ -4,11 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_randomize_app"
     app:startDestination="@id/mainFragmentRandomize">
-
     <fragment
         android:id="@+id/mainFragmentRandomize"
         android:name="com.example.randomizer.fragments.MainFragmentRandomize"
-        android:label="MainFragmentRandomize"
-        tools:layout="@layout/fragment_main_randomize"
-        />
+        android:label="fragment_main_randomize"
+        tools:layout="@layout/fragment_main_randomize" >
+        <action
+            android:id="@+id/action_mainFragmentRandomize_to_generateRandomDigitFragment"
+            app:destination="@id/generateRandomDigitFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragmentRandomize_to_dicesFragment"
+            app:destination="@id/dicesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragmentRandomize_to_eagleAndTailsFragment"
+            app:destination="@id/eagleAndTailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/generateRandomDigitFragment"
+        android:name="com.example.randomizer.fragments.GenerateRandomDigitFragment"
+        android:label="fragment_generate_random_digit_fragment"
+        tools:layout="@layout/fragment_digit_random_generate" />
+    <fragment
+        android:id="@+id/dicesFragment"
+        android:name="com.example.randomizer.fragments.DicesFragment"
+        android:label="fragment_dices"
+        tools:layout="@layout/fragment_dices" />
+    <fragment
+        android:id="@+id/eagleAndTailsFragment"
+        android:name="com.example.randomizer.fragments.EagleAndTailsFragment"
+        android:label="fragment_eagle_and_tails"
+        tools:layout="@layout/fragment_eagle_and_tails" />
 </navigation>

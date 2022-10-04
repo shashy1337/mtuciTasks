@@ -5,12 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.randomizer.databinding.FragmentDicesBinding
+import com.example.randomizer.databinding.FragmentDigitRandomGenerateBinding
+import kotlinx.android.synthetic.main.fragment_digit_random_generate.*
 import kotlin.random.Random
 
-class DicesFragment : Fragment() {
+class GenerateRandomDigitFragment : Fragment() {
 
-    private lateinit var binding: FragmentDicesBinding
+    private lateinit var binding: FragmentDigitRandomGenerateBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -21,7 +22,7 @@ class DicesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDicesBinding.inflate(inflater, container, false)
+        binding = FragmentDigitRandomGenerateBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,7 +31,9 @@ class DicesFragment : Fragment() {
         val button = binding.buttonRandom
         val numberStr = binding.number
         button.setOnClickListener {
-            val randomValue = Random.nextInt(0, 100)
+            val randomValue = Random.nextInt(
+                binding.textFieldRange1.editText?.text.toString().toInt(),
+                binding.textFieldRange2.editText?.text.toString().toInt())
             numberStr.text = randomValue.toString()
         }
     }

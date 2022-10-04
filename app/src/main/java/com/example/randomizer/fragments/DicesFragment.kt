@@ -5,56 +5,64 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.view.contains
 import com.example.randomizer.R
+import com.example.randomizer.databinding.FragmentDicesBinding
+import kotlinx.android.synthetic.main.fragment_dices.*
+import kotlinx.android.synthetic.main.fragment_dices.view.*
+import kotlin.random.Random
+import kotlin.random.nextInt
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DicesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DicesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private lateinit var binding: FragmentDicesBinding
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        diceLogicRandomize()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dices, container, false)
+    ): View {
+        binding = FragmentDicesBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DicesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DicesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    fun diceLogicRandomize(){
+        val dice1 = binding.dice1
+        val dice2 = binding.dice2
+        val container = binding.diceContainer
+        val buttonChoiceDice1 = binding.buttonChoiceDice1
+        val buttonChoiceDice2 = binding.buttonChoiceDice2
+
+        val buttonThrow = binding.throwButton
+
+        buttonChoiceDice1.setOnClickListener {
+            textInfoDice.text = "Бросьте кубик!"
+            if (dice2 in container){
+                container.removeView(dice2)
             }
+
+        }
+
+        buttonChoiceDice2.setOnClickListener {
+            textInfoDice.text = "Бросьте кубики!"
+            if (dice2 !in container){
+                container.addView(dice2)
+            }
+        }
+
+        buttonThrow.setOnClickListener {
+            if(dice1 in container && dice2 in container){
+                dice1.text = Random.nextInt(1,7).toString()
+                dice2.text = Random.nextInt(1,7).toString()
+            } else {
+                dice1.text = Random.nextInt(1,7).toString()
+            }
+        }
     }
+
 }
