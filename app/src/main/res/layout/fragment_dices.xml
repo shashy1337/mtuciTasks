@@ -62,6 +62,7 @@
                android:id="@+id/buttonChoiceDice1"
                android:layout_width="wrap_content"
                android:layout_margin="10dp"
+               android:background="@drawable/rounded_corners"
                android:layout_height="wrap_content"
                android:text="@string/One" />
 
@@ -69,6 +70,7 @@
                android:id="@+id/buttonChoiceDice2"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
+               android:background="@drawable/rounded_corners"
                android:layout_margin="10dp"
                android:text="@string/two"
                app:layout_constraintEnd_toEndOf="parent" />
@@ -83,6 +85,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/throwC"
+            android:background="@drawable/rounded_corners"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonChoiceContainer" />
 

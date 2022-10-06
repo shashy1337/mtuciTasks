@@ -30,6 +30,10 @@ class MainActivity : AppCompatActivity() {
                 .navigate(R.id.action_mainFragmentRandomize_to_dicesFragment)
             "Подрабысвание монетки" -> navController
                 .navigate(R.id.action_mainFragmentRandomize_to_eagleAndTailsFragment)
+            "Шар восьмерка" -> navController
+                .navigate(R.id.action_mainFragmentRandomize_to_eightBallFragment)
+            "Список" -> navController
+                .navigate(R.id.action_mainFragmentRandomize_to_listRandomFragment)
         }
 
     }

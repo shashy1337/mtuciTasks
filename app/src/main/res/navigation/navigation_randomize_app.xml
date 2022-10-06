@@ -24,6 +24,16 @@
             app:destination="@id/eagleAndTailsFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragmentRandomize_to_eightBallFragment"
+            app:destination="@id/eightBallFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragmentRandomize_to_listRandomFragment"
+            app:destination="@id/listRandomFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/generateRandomDigitFragment"
@@ -40,4 +50,14 @@
         android:name="com.example.randomizer.fragments.EagleAndTailsFragment"
         android:label="fragment_eagle_and_tails"
         tools:layout="@layout/fragment_eagle_and_tails" />
+    <fragment
+        android:id="@+id/eightBallFragment"
+        android:name="com.example.randomizer.fragments.EightBallFragment"
+        android:label="fragment_eight_ball"
+        tools:layout="@layout/fragment_eight_ball" />
+    <fragment
+        android:id="@+id/listRandomFragment"
+        android:name="com.example.randomizer.fragments.ListRandomFragment"
+        android:label="fragment_list_random"
+        tools:layout="@layout/fragment_list_random" />
 </navigation>

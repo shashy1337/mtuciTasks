@@ -30,7 +30,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0.3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/pic_eagle_and_tickle" />
 
         <Button
             android:id="@+id/eagle_reshka_button"
@@ -38,6 +39,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/rounded_corners"
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/random"
             app:layout_constraintTop_toBottomOf="@+id/eagle_reshka" />

@@ -19,4 +19,12 @@
     <string name="until">До</string>
     <string name="from">От</string>
     <string name="eagle_or_tickle">Орел или Решка?</string>
+    <string name="pic_eagle_and_tickle">pic eagle and tickle</string>
+    <string name="background">background</string>
+    <string name="decr_ball">Подумайте о чем нибудь и предскажите будущее</string>
+    <string name="random_place">Введите значение для добавления в список</string>
+    <string name="text_for_list">text_for_list</string>
+    <string name="list_str">Список</string>
+    <string name="add_data">ADD DATA</string>
+    <string name="delete_item">delete item</string>
 </resources>
